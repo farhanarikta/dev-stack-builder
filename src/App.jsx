@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TechnologyCard from "./components/TechnologyCard";
@@ -25,35 +28,51 @@ const App = () => {
 
   // Add technology to stack
   const handleAddToStack = (technology) => {
-    setStack((currentStack) => {
-      // Prevent duplicate technology
-      const alreadyAdded = currentStack.some(
-        (item) => item.id === technology.id
-      );
+    const alreadyAdded = stack.some(
+      (item) => item.id === technology.id
+    );
 
-      if (alreadyAdded) {
-        return currentStack;
-      }
+    if (alreadyAdded) {
+      toast.warning(`${technology.name} is already in your stack!`);
+      return;
+    }
 
-      return [...currentStack, technology];
-    });
+    setStack((currentStack) => [...currentStack, technology]);
+
+    toast.success(`${technology.name} added to your stack!`);
   };
 
-  // Remove one technology from stack
+  // Remove one technology
   const handleRemoveFromStack = (technologyId) => {
-    setStack((currentStack) =>
-      currentStack.filter((technology) => technology.id !== technologyId)
+    const removedTechnology = stack.find(
+      (technology) => technology.id === technologyId
     );
+
+    setStack((currentStack) =>
+      currentStack.filter(
+        (technology) => technology.id !== technologyId
+      )
+    );
+
+    if (removedTechnology) {
+      toast.success(`${removedTechnology.name} removed from your stack.`);
+    }
   };
 
   // Remove all technologies
   const handleRemoveAll = () => {
+    if (stack.length === 0) {
+      return;
+    }
+
     setStack([]);
+
+    toast.success("All technologies removed from your stack.");
   };
 
   return (
     <div className="min-h-screen bg-white">
-      
+
       {/* Navbar */}
       <Navbar />
 
@@ -89,13 +108,16 @@ const App = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                   {technologies.map((technology) => (
-                       <TechnologyCard
-                       key={technology.id}
-                       technology={technology}
-                       onAdd={handleAddToStack}
-                       isAdded={stack.some((item) => item.id === technology.id)}
-  />
-))}
+                    <TechnologyCard
+                      key={technology.id}
+                      technology={technology}
+                      onAdd={handleAddToStack}
+                      isAdded={stack.some(
+                        (item) => item.id === technology.id
+                      )}
+                    />
+                  ))}
+
                 </div>
               </div>
 
@@ -112,6 +134,18 @@ const App = () => {
           </div>
         </section>
       )}
+
+      {/* Toast Notifications */}
+      <ToastContainer
+        position="top-right"
+        autoClose={2500}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="light"
+      />
+
     </div>
   );
 };
