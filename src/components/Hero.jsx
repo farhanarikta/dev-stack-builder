@@ -1,10 +1,11 @@
 import heroImage from "../assets/banner-stack.png";
+
 const Hero = () => {
   return (
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-
+          
           {/* Hero Content */}
           <div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
@@ -32,14 +33,13 @@ const Hero = () => {
           </div>
 
           {/* Hero Image */}
-<div className="flex justify-center lg:justify-end">
-  <img
-    src={heroImage}
-    alt="Dev Stack technologies"
-    className="w-full max-w-lg object-contain"
-  />
-</div>
-
+          <div className="flex justify-center lg:justify-end">
+            <img
+              src={heroImage}
+              alt="Dev Stack technologies"
+              className="w-full max-w-lg object-contain"
+            />
+          </div>
 
         </div>
       </div>
