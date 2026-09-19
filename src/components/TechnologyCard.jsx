@@ -1,4 +1,15 @@
+import { toast } from "react-toastify";
+
 const TechnologyCard = ({ technology, onAdd, isAdded }) => {
+  const handleButtonClick = () => {
+    if (isAdded) {
+      toast.warning(`${technology.name} is already in your stack!`);
+      return;
+    }
+
+    onAdd(technology);
+  };
+
   return (
     <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition duration-300">
 
@@ -49,8 +60,7 @@ const TechnologyCard = ({ technology, onAdd, isAdded }) => {
 
       {/* Add to Stack Button */}
       <button
-        onClick={() => onAdd(technology)}
-        disabled={isAdded}
+        onClick={handleButtonClick}
         className={`w-full mt-5 py-2.5 rounded-lg font-semibold transition ${
           isAdded
             ? "bg-gray-200 text-gray-500 cursor-not-allowed"
