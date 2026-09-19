@@ -89,13 +89,13 @@ const App = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                   {technologies.map((technology) => (
-                    <TechnologyCard
-                      key={technology.id}
-                      technology={technology}
-                      onAdd={handleAddToStack}
-                    />
-                  ))}
-
+                       <TechnologyCard
+                       key={technology.id}
+                       technology={technology}
+                       onAdd={handleAddToStack}
+                       isAdded={stack.some((item) => item.id === technology.id)}
+  />
+))}
                 </div>
               </div>
 

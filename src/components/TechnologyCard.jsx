@@ -1,4 +1,4 @@
-const TechnologyCard = ({ technology, onAdd }) => {
+const TechnologyCard = ({ technology, onAdd, isAdded }) => {
   return (
     <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition duration-300">
 
@@ -50,9 +50,14 @@ const TechnologyCard = ({ technology, onAdd }) => {
       {/* Add to Stack Button */}
       <button
         onClick={() => onAdd(technology)}
-        className="w-full mt-5 py-2.5 rounded-lg font-semibold text-white bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 hover:opacity-90 transition"
+        disabled={isAdded}
+        className={`w-full mt-5 py-2.5 rounded-lg font-semibold transition ${
+          isAdded
+            ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+            : "text-white bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 hover:opacity-90"
+        }`}
       >
-        Add to Stack
+        {isAdded ? "✓ Added to Stack" : "Add to Stack"}
       </button>
 
     </div>
