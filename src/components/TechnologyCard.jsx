@@ -1,6 +1,6 @@
 const TechnologyCard = ({ technology, onAdd }) => {
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+    <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition duration-300">
 
       {/* Icon and Badge */}
       <div className="flex items-start justify-between">
@@ -27,18 +27,21 @@ const TechnologyCard = ({ technology, onAdd }) => {
 
       {/* Category and Difficulty */}
       <div className="flex flex-wrap gap-2 mt-4">
-        <span className="px-3 py-1 text-xs rounded-full bg-gray-100 text-gray-700">
+        <span className="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-700">
           {technology.category}
         </span>
 
-        <span className="px-3 py-1 text-xs rounded-full bg-purple-100 text-purple-700">
+        <span className="px-3 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700">
           {technology.difficulty}
         </span>
       </div>
 
       {/* Rating */}
       <div className="flex items-center gap-1 mt-4">
-        <span className="text-yellow-500">★</span>
+        <span className="text-yellow-500 text-lg">
+          ★
+        </span>
+
         <span className="text-sm font-medium text-gray-700">
           {technology.rating}
         </span>
@@ -51,6 +54,7 @@ const TechnologyCard = ({ technology, onAdd }) => {
       >
         Add to Stack
       </button>
+
     </div>
   );
 };
