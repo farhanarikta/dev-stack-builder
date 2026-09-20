@@ -1,1 +1,4 @@
 @import "tailwindcss";
+.gradient-theme {
+  background: linear-gradient(to right, #f97316, #ec4899, #7c3aed);
+}

@@ -60,15 +60,15 @@ const TechnologyCard = ({ technology, onAdd, isAdded }) => {
 
       {/* Add to Stack Button */}
       <button
-        onClick={handleButtonClick}
-        className={`w-full mt-5 py-2.5 rounded-lg font-semibold transition ${
-          isAdded
-            ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-            : "text-white bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 hover:opacity-90"
-        }`}
-      >
-        {isAdded ? "✓ Added to Stack" : "Add to Stack"}
-      </button>
+  onClick={handleButtonClick}
+  className={`w-full mt-5 py-2.5 rounded-lg font-semibold transition ${
+    isAdded
+      ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+      : "text-white gradient-theme hover:opacity-90"
+  }`}
+>
+  {isAdded ? "✓ Added to Stack" : "Add to Stack"}
+</button>
 
     </div>
   );

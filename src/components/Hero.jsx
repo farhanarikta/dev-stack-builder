@@ -22,9 +22,9 @@ const Hero = () => {
 
             {/* Buttons */}
             <div className="flex flex-wrap gap-4 mt-8">
-              <button className="px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 hover:opacity-90 transition">
-                Explore Technologies
-              </button>
+             <button className="px-6 py-3 rounded-full text-white font-semibold gradient-theme hover:opacity-90 transition">
+               Explore Technologies
+            </button>
 
               <button className="px-6 py-3 rounded-full font-semibold text-gray-700 border border-gray-300 hover:border-gray-500 transition">
                 Learn More
