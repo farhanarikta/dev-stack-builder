@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TechnologyCard from "./components/TechnologyCard";
 import YourStack from "./components/YourStack";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [technologies, setTechnologies] = useState([]);
@@ -136,15 +137,18 @@ const App = () => {
       )}
 
       {/* Toast Notifications */}
-      <ToastContainer
-        position="top-right"
-        autoClose={2500}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        pauseOnHover
-        theme="light"
-      />
+      <Footer />
+
+<ToastContainer
+  position="top-right"
+  autoClose={2500}
+  hideProgressBar={false}
+  newestOnTop
+  closeOnClick
+  pauseOnHover
+  theme="light"
+/>
+
 
     </div>
   );
